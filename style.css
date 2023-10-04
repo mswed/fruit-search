@@ -49,7 +49,7 @@ ul li:hover {
     cursor: pointer;
 }
 
-#key-hover {
+#highlight {
     display: block;
     /*color: red;*/
     background: #B58DB6;
