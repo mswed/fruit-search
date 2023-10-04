@@ -72,7 +72,7 @@ function highlightItemWithKeys(direction) {
 
 }
 
-function showSuggestions(results, inputVal) {
+function showSuggestions(results) {
     // Clear the list
     suggestions.innerHTML = '';
     for (let fruit of results) {
@@ -94,7 +94,7 @@ function useSuggestion(e) {
         input.value = suggestions.children[selectedIdx].innerText
         selectedIdx = 0;
     }
-    
+
     input.blur()
     // Clear the suggestions list
     suggestions.innerHTML = '';
