@@ -33,8 +33,9 @@ function searchHandler(e) {
 
 function clearHighlights() {
     // Remove the highlights from the list
-    for (let child of [...suggestions.children]) {
-        child.id = '';
+    const highlighted = document.querySelectorAll('#highlight')
+    for (let element of highlighted) {
+        element.id = '';
     }
 }
 
