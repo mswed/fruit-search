@@ -6,7 +6,7 @@ let selectedIdx = -1;
 
 function search(str) {
     // Convert search string to lowercase
-    const lowerCaseSearch = str.toLowerCase()
+    const lowerCaseSearch = str.toLowerCase();
 
     return fruit.filter((item) => {
         // Convert fruit item to lowercase
@@ -22,12 +22,12 @@ function searchHandler(e) {
     } else if (e.code === 'ArrowUp') {
         highlightItemWithKeys('up');
     } else if (e.code === 'Enter' && selectedIdx !== -1) {
-        useSuggestion('enter')
+        useSuggestion('enter');
     } else {
         // Filter the fruit list
-        let results = search(input.value)
+        let results = search(input.value);
         // Add the results to the dropdown
-        showSuggestions(results, input.value)
+        showSuggestions(results, input.value);
     }
 }
 
@@ -41,8 +41,8 @@ function clearHighlights() {
 function highlightItemWithMouse(e) {
     // Highlight  the item under the cursor
     if (suggestions.childElementCount > 0) {
-        clearHighlights()
-        selectedIdx = [...suggestions.children].indexOf(e.target)
+        clearHighlights();
+        selectedIdx = [...suggestions.children].indexOf(e.target);
         e.target.id = 'highlight';
     }
 
@@ -61,9 +61,9 @@ function highlightItemWithKeys(direction) {
 
         } else if (direction === 'up') {
             if (selectedIdx > 0) {
-                selectedIdx--
+                selectedIdx--;
             } else {
-                selectedIdx = suggestions.childElementCount - 1
+                selectedIdx = suggestions.childElementCount - 1;
             }
         }
         clearHighlights()
@@ -82,16 +82,16 @@ function showSuggestions(results) {
         suggestions.append(li)
     }
     if (suggestions.childElementCount > 0) {
-        suggestions.classList.add('has-suggestions')
+        suggestions.classList.add('has-suggestions');
     } else {
-        suggestions.classList.remove('has-suggestions')
+        suggestions.classList.remove('has-suggestions');
     }
 }
 
 function useSuggestion(e) {
     // Move the selection into the input
     if (suggestions.childElementCount > 0) {
-        input.value = suggestions.children[selectedIdx].innerText
+        input.value = suggestions.children[selectedIdx].innerText;
         selectedIdx = 0;
     }
 
@@ -103,4 +103,4 @@ function useSuggestion(e) {
 
 input.addEventListener('keyup', searchHandler);
 suggestions.addEventListener('click', useSuggestion);
-suggestions.addEventListener('mouseover', highlightItemWithMouse)
+suggestions.addEventListener('mouseover', highlightItemWithMouse);
